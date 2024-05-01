@@ -235,10 +235,10 @@ def main_worker(gpu, ngpus_per_node, args):
             continue
 
         slide_path = os.path.join(args.slide_dir, s_rpath)
-        image_dir = os.path.join(slide_path, scales[args.level])
+        image_dir = os.path.join(slide_path, s_rpath)
 
         tissue_mask = get_tissue_mask(cv2.imread(
-            os.path.join(slide_path, 'Overview.jpg')))
+            os.path.join('/kaggle/working/kat-wsi/Overview.jpg')))
         content_mat = cv2.blur(
             tissue_mask, ksize=args.filter_size, anchor=(0, 0))
         content_mat = content_mat[::args.frstep, ::args.frstep] > args.intensity_thred
