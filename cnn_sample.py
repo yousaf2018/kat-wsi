@@ -84,7 +84,7 @@ def sampling_slide(slide_info):
     image_dir = os.path.join(slide_path, slide_rpath)
 
     tissue_mask = get_tissue_mask(cv2.imread(
-            os.path.join(slide_path, 'Overview.jpg')))
+        os.path.join('/kaggle/working/kat-wsi/Overview.jpg')))
     
     content_mat = cv2.blur(tissue_mask, ksize=args.filter_size, anchor=(0, 0))
     content_mat = content_mat[::args.srstep, ::args.srstep]
