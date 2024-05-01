@@ -275,9 +275,9 @@ def make_list(args, min_file_size=5 * 1024):
             pickle.dump({'base_dir': dataset_path,
                          'list': train_set_shuffle}, f)
 
-        if len(val_set):
-            with open(os.path.join(sub_list_path, 'val'), 'wb') as f:
-                pickle.dump({'base_dir': dataset_path, 'list': val_set}, f)
+        # if len(val_set):
+        with open(os.path.join(sub_list_path, 'val'), 'wb') as f:
+            pickle.dump({'base_dir': dataset_path, 'list': train_set_shuffle}, f)
         if len(test_set):
             with open(os.path.join(sub_list_path, 'test'), 'wb') as f:
                 pickle.dump({'base_dir': dataset_path, 'list': test_set}, f)
