@@ -59,7 +59,7 @@
 # import pandas as pd
 
 # # Read the train.csv file into a DataFrame
-# train_df = pd.read_csv('C:\\Users\\neurog\\Pictures\\kat-wsi\\test.csv')
+# train_df = pd.read_csv('C:\\Users\\neurog\\Pictures\\kat-wsi\\train.csv')
 # train_df['r_path'] = train_df['PATIENT']
 
 # # Rename the 'Label' column to 'label'
@@ -72,7 +72,7 @@
 # # Create a copy of the 'PATIENT' column as the 'PATIENT_PATH' column
 
 # # Save the modified DataFrame back to train.csv file
-# train_df.to_csv('C:\\Users\\neurog\\Pictures\\kat-wsi\\test.csv', index=False)
+# train_df.to_csv('C:\\Users\\neurog\\Pictures\\kat-wsi\\train.csv', index=False)
 
 # print("Train.csv file modified successfully.")
 
@@ -80,12 +80,12 @@
 import pandas as pd
 
 # Read the train.csv file into a DataFrame
-train_df = pd.read_csv('C:\\Users\\neurog\\Pictures\\kat-wsi\\test.csv')
+train_df = pd.read_csv('C:\\Users\\neurog\\Pictures\\kat-wsi\\train.csv')
 
 # Reorder the columns
 train_df = train_df[train_df.columns[[0, 2, 1]]]
 
 # Save the modified DataFrame back to train.csv file
-train_df.to_csv('C:\\Users\\neurog\\Pictures\\kat-wsi\\test.csv', index=False)
+train_df.to_csv('C:\\Users\\neurog\\Pictures\\kat-wsi\\train.csv', index=False)
 
 print("Column location changed successfully in train.csv.")
