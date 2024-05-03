@@ -21,6 +21,7 @@ import torch
 import os
 import argparse
 import time
+import random
 import pickle
 import cv2
 import numpy as np
@@ -236,9 +237,17 @@ def main_worker(gpu, ngpus_per_node, args):
 
         slide_path = os.path.join(args.slide_dir, s_rpath)
         image_dir = os.path.join(slide_path, s_rpath)
+        image_files = os.listdir(image_dir)
 
-        tissue_mask = get_tissue_mask(cv2.imread(
-            os.path.join('/kaggle/working/kat-wsi/Overview.jpg')))
+        # Filter out non-JPEG files
+        image_files = [f for f in image_files if f.lower().endswith('.jpg')]
+
+        # Select a random file from the list
+        random_file = random.choice(image_files)
+
+        # Read the selected image for tissue mask
+        image_path = os.path.join(image_dir, random_file)
+        tissue_mask = get_tissue_mask(cv2.imread(image_path))
         content_mat = cv2.blur(
             tissue_mask, ksize=args.filter_size, anchor=(0, 0))
         content_mat = content_mat[::args.frstep, ::args.frstep] > args.intensity_thred
