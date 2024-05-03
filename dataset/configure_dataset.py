@@ -47,7 +47,7 @@ with open(os.path.join(data_list_dir, 'slide_list.pkl'), 'wb') as f:
     )
 
 # Make datset config
-lesions = ["Cancer", "Normal",]
+lesions = ["Normal", "Cancer",]
 
 tasks = {
     1:{'num_classes':3, 'map':{0:0, 1:1, 2:2}},
